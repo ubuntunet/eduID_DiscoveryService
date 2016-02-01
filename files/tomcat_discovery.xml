@@ -1,0 +1,5 @@
+<Context docBase="/opt/shibboleth-ds/war/discovery.war"
+         unpackWAR="false"
+         swallowOutput="true">
+  <Manager pathname="" />
+</Context>

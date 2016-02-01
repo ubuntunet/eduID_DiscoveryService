@@ -1,31 +1,26 @@
 - name: Install Shibboleth centralized Discovery Service for UbuntuNet Alliance
   hosts: development
-  sudo: True
+  become: True
   vars:
     federation_name: UbuntuNet Federation
     federation_identifier: UbuntuFed
     ds_directory: /opt/shibboleth-ds
-    # fully_qualified_service_name: idp.{{ home_organisation_name }}
-    # entity_id: https://{{ fully_qualified_service_name }}/shibboleth/idp
-    # admin_email: idp@ubuntunet.net
-    # certificate_key_path: /etc/ssl/private/{{ fully_qualified_service_name }}.key
-    # certificate_cert_path: /etc/ssl/certs/{{ fully_qualified_service_name }}.crt
     tomcat_version: 7
     ds_version: 1.2.1
 
   tasks:
     - name: Install needed utility programs
-      apt: pkg={{ item }} update_cache=yes cache_valid_time=3600
+      apt: pkg={{ item }} update_cache=yes cache_valid_time=36000
       with_items:
         # - ntp
         - unzip
 
     - name: Install OpenJDK 7
-      apt: name=openjdk-7-jdk update_cache=yes cache_valid_time=3600
+      apt: name=openjdk-7-jdk update_cache=yes cache_valid_time=36000
 
     # Servlet container: Apache Tomcat 7
     - name: Install Tomcat 7
-      apt: name=tomcat{{ tomcat_version }} update_cache=yes cache_valid_time=3600
+      apt: name=tomcat{{ tomcat_version }} update_cache=yes cache_valid_time=36000
 
     # Shibboleth cDS
 
@@ -57,7 +52,42 @@
       shell: cp /usr/local/dist/shibboleth-discovery-service-{{ ds_version }}/lib/endorsed/*.jar /usr/share/tomcat{{ tomcat_version }}/endorsed/
 
 
-    - name: Create cDS directory
-      file: >
-        path={{ ds_directory }}
-        state=directory
+    - name: Run install script
+      shell: >
+        /usr/local/dist/shibboleth-discovery-service-{{ ds_version }}/install.sh -Dds.home.input={{ ds_directory }} -Dinstall.config=yes
+      environment: 
+        JAVA_HOME: ${JAVA_HOME:-$(ls -d /usr/lib/jvm/java-1.7.0-openjdk-* 2>/dev/null | tail -1)/jre}
+
+    - name: Copy static sites info file
+      copy: > 
+        src=files/sites.xml 
+        dest={{ ds_directory }}/metadata/sites.xml
+      notify: restart tomcat
+
+    - name: Copy Wayfconfig file
+      template: > 
+        src=templates/wayfconfig.xml.j2 
+        dest={{ ds_directory }}/conf/wayfconfig.xml
+      notify: restart tomcat
+
+    - name: Hand logs directory to Tomcat user
+      file: path={{ ds_directory }}/logs owner=tomcat7 recurse=yes
+
+
+    - name: Hand metadata directory to Tomcat user
+      file: path={{ ds_directory }}/metadata owner=tomcat7 recurse=yes
+
+    - name: Enable cDS WAR
+      copy: > 
+        src=files/tomcat_discovery.xml 
+        dest=/etc/tomcat7/Catalina/localhost/discovery.xml
+      notify: restart tomcat
+
+
+
+
+
+  handlers:
+    - name: restart tomcat
+      service: name=tomcat{{ tomcat_version }} state=restarted
+
