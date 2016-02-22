@@ -1,0 +1,6 @@
+federation_name: UbuntuNet Federation
+federation_identifier: UbuntuFed
+ds_directory: /opt/shibboleth-ds
+tomcat_version: 7
+ds_version: 1.2.1
+metadata_url: https://staging.idp.ubuntunet.net/metadata.xml

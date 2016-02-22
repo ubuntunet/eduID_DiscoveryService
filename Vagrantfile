@@ -13,9 +13,9 @@ Vagrant.configure(2) do |config|
   # Use the same key for each machine 
   config.ssh.insert_key = false
 
-  config.vm.define "vagrant_ds" do |ds|
-    ds.vm.box = "ubuntu/trusty64"
-    ds.vm.network "private_network", ip: "192.168.33.55"
+  config.vm.define "vagrant_cds" do |cds|
+    cds.vm.box = "ubuntu/trusty64"
+    cds.vm.network "private_network", ip: "192.168.33.55"
   end
 
   # Every Vagrant development environment requires a box. You can search for

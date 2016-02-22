@@ -1,14 +1,6 @@
 - name: Install Shibboleth centralized Discovery Service for UbuntuNet Alliance
-  hosts: development
+  hosts: cds
   become: True
-  vars:
-    federation_name: UbuntuNet Federation
-    federation_identifier: UbuntuFed
-    ds_directory: /opt/shibboleth-ds
-    tomcat_version: 7
-    ds_version: 1.2.1
-    metadata_url: https://192.168.33.44/metadata.xml
-
   tasks:
     - name: Install needed utility programs
       apt: pkg={{ item }} update_cache=yes cache_valid_time=36000
@@ -31,10 +23,10 @@
         path=/usr/local/dist
         state=directory
 
-    # - name: Download Shibboleth cDS
-    #   get_url: > 
-    #     url=http://shibboleth.net/downloads/centralized-discovery-service/{{ ds_version }}/shibboleth-discovery-service-{{ ds_version }}-bin.zip
-    #     dest=/usr/local/dist
+    - name: Download Shibboleth cDS
+      get_url: > 
+        url=http://shibboleth.net/downloads/centralized-discovery-service/{{ ds_version }}/shibboleth-discovery-service-{{ ds_version }}-bin.zip
+        dest=/usr/local/dist
 
     - name: Extract Shibboleth cDS
       unarchive: > 
