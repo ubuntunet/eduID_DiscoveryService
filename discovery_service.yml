@@ -11,7 +11,6 @@
     - name: Install OpenJDK 7
       apt: name=openjdk-7-jdk update_cache=yes cache_valid_time=36000
 
-    # Servlet container: Apache Tomcat 7
     - name: Install Tomcat 7
       apt: name=tomcat{{ tomcat_version }} update_cache=yes cache_valid_time=36000
 
@@ -48,12 +47,15 @@
     - name: Run install script
       shell: >
         /usr/local/dist/shibboleth-discovery-service-{{ ds_version }}/install.sh -Dds.home.input={{ ds_directory }} -Dinstall.config=yes
+      args:
+        chdir: /usr/local/dist/shibboleth-discovery-service-{{ ds_version }}
       environment: 
-        JAVA_HOME: ${JAVA_HOME:-$(ls -d /usr/lib/jvm/java-1.7.0-openjdk-* 2>/dev/null | tail -1)/jre}
+        # JAVA_HOME: "${JAVA_HOME:-$(ls -d /usr/lib/jvm/java-1.7.0-openjdk-* 2>/dev/null | tail -1)/jre}"
+        JAVA_HOME: "/usr/lib/jvm/java-1.7.0-openjdk-amd64"
 
-    - name: Copy static sites info file
-      copy: > 
-        src=files/sites.xml 
+    - name: Copy sites info file
+      template: > 
+        src=templates/sites.xml.j2
         dest={{ ds_directory }}/metadata/sites.xml
       notify: restart tomcat
 
