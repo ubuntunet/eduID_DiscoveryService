@@ -36,13 +36,14 @@ wliK/gnSfY5Ek6WdN86HBJ16LqYdIXhLjSlTo+zTi+89Svw=
         <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
         <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
 
-        <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://192.168.33.44/idp/profile/Shibboleth/SSO" />
+        <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://{{ fqdn_idp_example }}/idp/profile/Shibboleth/SSO" />
 
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://192.168.33.44/idp/profile/SAML2/POST/SSO" />
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://{{ fqdn_idp_example }}/idp/profile/SAML2/POST/SSO" />
 
-        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://192.168.33.44/idp/profile/SAML2/Redirect/SSO" />
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://{{ fqdn_idp_example }}/idp/profile/SAML2/Redirect/SSO" />
       </IDPSSODescriptor>
 
+      
       <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
 
         <KeyDescriptor>
@@ -70,10 +71,11 @@ wliK/gnSfY5Ek6WdN86HBJ16LqYdIXhLjSlTo+zTi+89Svw=
             </ds:X509Data>
           </ds:KeyInfo>
         </KeyDescriptor>
+        <!--
+        <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://{{ fqdn_idp_example }}:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+        -->
 
-        <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://192.168.33.44:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
-
-        <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://192.168.33.44:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+        <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://{{ fqdn_idp_example }}:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
 
         <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
         <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
@@ -94,12 +96,12 @@ wliK/gnSfY5Ek6WdN86HBJ16LqYdIXhLjSlTo+zTi+89Svw=
     </EntityDescriptor>
 
     <!-- A service provider. -->
-    <EntityDescriptor entityID="https://192.168.33.88/shibboleth">
+    <EntityDescriptor entityID="https://{{ fqdn_sp_example }}/shibboleth">
       <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
 
         <Extensions>
-          <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" index="1" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="http://192.168.33.88/Shibboleth.sso/Login"/>
-          <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" index="2" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://192.168.33.88/Shibboleth.sso/Login"/>
+          <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" index="1" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="http://{{ fqdn_sp_example }}/Shibboleth.sso/Login"/>
+          <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" index="2" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://{{ fqdn_sp_example }}/Shibboleth.sso/Login"/>
         </Extensions>
 
         <KeyDescriptor>
@@ -131,11 +133,13 @@ kbdqUw1IeVdPgpQkLccxqTNKO4Y=
         <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
         <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
 
-        <AssertionConsumerService index="1" isDefault="true" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://192.168.33.88/Shibboleth.sso/SAML2/POST"/>
-        <AssertionConsumerService index="2" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://192.168.33.88/Shibboleth.sso/SAML2/POST-SimpleSign"/>
-        <AssertionConsumerService index="3" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://192.168.33.88/Shibboleth.sso/SAML2/Artifact"/>
-        <AssertionConsumerService index="4" Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://192.168.33.88/Shibboleth.sso/SAML/POST"/>
-        <AssertionConsumerService index="5" Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://192.168.33.88/Shibboleth.sso/SAML/Artifact"/>
+        <AssertionConsumerService index="1" isDefault="true" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://{{ fqdn_sp_example }}/Shibboleth.sso/SAML2/POST"/>
+        <AssertionConsumerService index="2" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://{{ fqdn_sp_example }}/Shibboleth.sso/SAML2/POST-SimpleSign"/>
+        <AssertionConsumerService index="3" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://{{ fqdn_sp_example }}/Shibboleth.sso/SAML2/Artifact"/>
+        <!--
+        <AssertionConsumerService index="4" Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://{{ fqdn_sp_example }}/Shibboleth.sso/SAML/POST"/>
+        <AssertionConsumerService index="5" Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://{{ fqdn_sp_example }}/Shibboleth.sso/SAML/Artifact"/>
+      -->
 
       </SPSSODescriptor>
 
