@@ -1,0 +1,310 @@
+  <EntitiesDescriptor Name="https://ubuntunet.net/metadata/ubuntunet.xml" xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!-- An identity provider. -->
+    <EntityDescriptor entityID="https://idp.ubuntunet.net/shibboleth">
+
+      <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+        <Extensions>
+          <shibmd:Scope regexp="false">ubuntunet.net</shibmd:Scope>
+        </Extensions>
+        <KeyDescriptor>
+          <ds:KeyInfo>
+            <ds:X509Data>
+              <ds:X509Certificate>
+MIIDHzCCAgegAwIBAgIUe2zSuVHxBsTYzM2HoN2HKQJ7ESwwDQYJKoZIhvcNAQEL
+BQAwGDEWMBQGA1UEAwwNMTkyLjE2OC4zMy40NDAeFw0xNjAyMDIxNDMxMDdaFw0x
+OTAyMDIxNDMxMDdaMBgxFjAUBgNVBAMMDTE5Mi4xNjguMzMuNDQwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCOaf/bkFlJB0zXkGO/YIUERAVXDpzdpBlo
+Lzw8LBTEqWL30ATTLRndVNgHaIgqGMGX6MUmhqju7eWxrBEWx5S7CzsQcPcOuZrx
+uGWBUhPPsDS6kmvlVNEjy6vYWXO/5t5VJ8HA8p/Mkw+y3LWIxQLZHAWS4ja2h/Z2
+uujncHml3tj486cSz41+14h0P5t90tyGGxeD8llBtEdQMpENNP+P13ZP5jZrxgFf
+MUnVfZRJDQJMTwCwEeM34T7/zmVpxKJENeWHFrGjN4L6YmusUvnzKpbUPddNXBbn
+xMUM8GPbzmIjQiT6kdOcZFdy10AIB2F5qEbI7PA90aUkAWyonCEtAgMBAAGjYTBf
+MB0GA1UdDgQWBBSdeRXJmwEUWMEfz+6jIh53fNraSjA+BgNVHREENzA1gg0xOTIu
+MTY4LjMzLjQ0hiRodHRwczovLzE5Mi4xNjguMzMuNDQvaWRwL3NoaWJib2xldGgw
+DQYJKoZIhvcNAQELBQADggEBAFO6ibqgOJUlp9lQw6CPgFPe088y2h3DnYEs7nhQ
+vsiALOOrYq3fmHs+leMxjzvboXLp5A6nJglEsnIAPMtkn/EZMHZECzYLKNvWduKR
+sszpft60sUmOpYlBlkkhE6g1gdQfQz44NW6npQDucifFIma0EcL+sfiORzg++XY5
+blr1dqrUTADnWRSrjFSrnTqtSJ0NO6SDWcA6197Qz5sDTqV2jfsD6A3nd60+oh/j
+rpCBCrLuQK0hVlS89sInkpN+XC8bhNKX5X+PaOSqfmv8t3aSG+CEZChfeKcugPIM
+wliK/gnSfY5Ek6WdN86HBJ16LqYdIXhLjSlTo+zTi+89Svw=
+              </ds:X509Certificate>
+            </ds:X509Data>
+          </ds:KeyInfo>
+        </KeyDescriptor>
+
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+        <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://192.168.33.44/idp/profile/Shibboleth/SSO" />
+
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://192.168.33.44/idp/profile/SAML2/POST/SSO" />
+
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://192.168.33.44/idp/profile/SAML2/Redirect/SSO" />
+      </IDPSSODescriptor>
+
+      <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <KeyDescriptor>
+          <ds:KeyInfo>
+            <ds:X509Data>
+              <ds:X509Certificate>
+MIIDHzCCAgegAwIBAgIUe2zSuVHxBsTYzM2HoN2HKQJ7ESwwDQYJKoZIhvcNAQEL
+BQAwGDEWMBQGA1UEAwwNMTkyLjE2OC4zMy40NDAeFw0xNjAyMDIxNDMxMDdaFw0x
+OTAyMDIxNDMxMDdaMBgxFjAUBgNVBAMMDTE5Mi4xNjguMzMuNDQwggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCOaf/bkFlJB0zXkGO/YIUERAVXDpzdpBlo
+Lzw8LBTEqWL30ATTLRndVNgHaIgqGMGX6MUmhqju7eWxrBEWx5S7CzsQcPcOuZrx
+uGWBUhPPsDS6kmvlVNEjy6vYWXO/5t5VJ8HA8p/Mkw+y3LWIxQLZHAWS4ja2h/Z2
+uujncHml3tj486cSz41+14h0P5t90tyGGxeD8llBtEdQMpENNP+P13ZP5jZrxgFf
+MUnVfZRJDQJMTwCwEeM34T7/zmVpxKJENeWHFrGjN4L6YmusUvnzKpbUPddNXBbn
+xMUM8GPbzmIjQiT6kdOcZFdy10AIB2F5qEbI7PA90aUkAWyonCEtAgMBAAGjYTBf
+MB0GA1UdDgQWBBSdeRXJmwEUWMEfz+6jIh53fNraSjA+BgNVHREENzA1gg0xOTIu
+MTY4LjMzLjQ0hiRodHRwczovLzE5Mi4xNjguMzMuNDQvaWRwL3NoaWJib2xldGgw
+DQYJKoZIhvcNAQELBQADggEBAFO6ibqgOJUlp9lQw6CPgFPe088y2h3DnYEs7nhQ
+vsiALOOrYq3fmHs+leMxjzvboXLp5A6nJglEsnIAPMtkn/EZMHZECzYLKNvWduKR
+sszpft60sUmOpYlBlkkhE6g1gdQfQz44NW6npQDucifFIma0EcL+sfiORzg++XY5
+blr1dqrUTADnWRSrjFSrnTqtSJ0NO6SDWcA6197Qz5sDTqV2jfsD6A3nd60+oh/j
+rpCBCrLuQK0hVlS89sInkpN+XC8bhNKX5X+PaOSqfmv8t3aSG+CEZChfeKcugPIM
+wliK/gnSfY5Ek6WdN86HBJ16LqYdIXhLjSlTo+zTi+89Svw=
+              </ds:X509Certificate>
+            </ds:X509Data>
+          </ds:KeyInfo>
+        </KeyDescriptor>
+
+        <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://192.168.33.44:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+
+        <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://192.168.33.44:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      </AttributeAuthorityDescriptor>
+
+      <Organization>
+        <OrganizationName xml:lang="en">UbuntuNet Alliance</OrganizationName>
+        <OrganizationDisplayName xml:lang="en">UbuntuNet</OrganizationDisplayName>
+        <OrganizationURL xml:lang="en">http://www.ubuntunet.net/</OrganizationURL>
+      </Organization>
+      <ContactPerson contactType="technical">
+        <GivenName>Chris</GivenName>
+        <SurName>Rohrer</SurName>
+        <EmailAddress>chris.rohrer@ubuntunet.net</EmailAddress>
+      </ContactPerson>
+
+    </EntityDescriptor>
+
+    <!-- Another identity provider. -->
+    <EntityDescriptor entityID="https://staging.idp.ubuntunet.net/shibboleth">
+
+      <IDPSSODescriptor protocolSupportEnumeration="urn:mace:shibboleth:1.0 urn:oasis:names:tc:SAML:2.0:protocol">
+        <Extensions>
+          <shibmd:Scope regexp="false">ubuntunet.net</shibmd:Scope>
+        </Extensions>
+        <KeyDescriptor>
+          <ds:KeyInfo>
+            <ds:X509Data>
+              <ds:X509Certificate>
+MIIDTzCCAjegAwIBAgIUJWLyZ14pRqjaxY53e7w1ORqoP/EwDQYJKoZIhvcNAQEL
+BQAwJDEiMCAGA1UEAwwZc3RhZ2luZy5pZHAudWJ1bnR1bmV0Lm5ldDAeFw0xNjAz
+MTEwNjU5NDlaFw0xOTAzMTEwNjU5NDlaMCQxIjAgBgNVBAMMGXN0YWdpbmcuaWRw
+LnVidW50dW5ldC5uZXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCa
+m4E8keHXKeRZmcQH1cpzYYaBmFpN93xt2GUH/AtmN2ITurGPvVqrjRzyiZoQ8PLk
+MjmB6D8sF39R3SSsIc6fung5NxjhtwGNO4uTCeBrS72Au5dCznT+NKKQoisUbYe5
+CiaCR3+X5Qb0plQqa9KoFz6bRxRoTbM3VEd2R6khxhVt52lfeNye+9n+u/sNTKN9
+VrqB6sX8+Sjt8wHL7m33GU93NU+hCStAb48ZetM3GGdqcTWBqdIOG+BS5J6YhSS4
+cHhaf70BghtKXfeRPFF06TCUyVOpzrXPHSDiloEVLGG/HwzYjcgtC4BVE2ER6/Us
+q/ywUtS2ih1lCaoO9eCvAgMBAAGjeTB3MB0GA1UdDgQWBBTZiyZF4iaNArWlSngC
+r6JSZzIwtzBWBgNVHREETzBNghlzdGFnaW5nLmlkcC51YnVudHVuZXQubmV0hjBo
+dHRwczovL3N0YWdpbmcuaWRwLnVidW50dW5ldC5uZXQvaWRwL3NoaWJib2xldGgw
+DQYJKoZIhvcNAQELBQADggEBABmIXLuY7lhSENPiw/6de0B2Db1dJ9TkpycIxLqf
+8HR23rhoCWDP/PXYr+oQeUVzQKB+n1eUUEVj9kwfr1GsKAPUdLeouRT0Z6fpPLsG
+bwAOm/HQUJr7SaVM/lIeFTBkgV1ebBmaEEFTARa6pOTVoD9VKHj5bfJU+2ZyS6rT
+lxYefwodesOUFls8tLG6BR5UH6hkIMZWVqy6NY4XYmVkAKH/6PVQlVlKC45Ql+An
+1fJFoTx7E6LuB0SqH+xER4sL+lidEaCncxPWgNhVZeR7wAPLUQiD4fJ3scVfWeQ1
+bVpDWS8Z/gkhYNlQHRjm0tqYSHwfrVdFT2aEjAfGOHD2FPk=
+              </ds:X509Certificate>
+            </ds:X509Data>
+          </ds:KeyInfo>
+        </KeyDescriptor>
+
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+        <SingleSignOnService Binding="urn:mace:shibboleth:1.0:profiles:AuthnRequest" Location="https://staging.idp.ubuntunet.net/idp/profile/Shibboleth/SSO" />
+
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://staging.idp.ubuntunet.net/idp/profile/SAML2/POST/SSO" />
+
+        <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://staging.idp.ubuntunet.net/idp/profile/SAML2/Redirect/SSO" />
+      </IDPSSODescriptor>
+
+      <AttributeAuthorityDescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:1.1:protocol urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <KeyDescriptor>
+          <ds:KeyInfo>
+            <ds:X509Data>
+              <ds:X509Certificate>
+MIIDTzCCAjegAwIBAgIUJWLyZ14pRqjaxY53e7w1ORqoP/EwDQYJKoZIhvcNAQEL
+BQAwJDEiMCAGA1UEAwwZc3RhZ2luZy5pZHAudWJ1bnR1bmV0Lm5ldDAeFw0xNjAz
+MTEwNjU5NDlaFw0xOTAzMTEwNjU5NDlaMCQxIjAgBgNVBAMMGXN0YWdpbmcuaWRw
+LnVidW50dW5ldC5uZXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCa
+m4E8keHXKeRZmcQH1cpzYYaBmFpN93xt2GUH/AtmN2ITurGPvVqrjRzyiZoQ8PLk
+MjmB6D8sF39R3SSsIc6fung5NxjhtwGNO4uTCeBrS72Au5dCznT+NKKQoisUbYe5
+CiaCR3+X5Qb0plQqa9KoFz6bRxRoTbM3VEd2R6khxhVt52lfeNye+9n+u/sNTKN9
+VrqB6sX8+Sjt8wHL7m33GU93NU+hCStAb48ZetM3GGdqcTWBqdIOG+BS5J6YhSS4
+cHhaf70BghtKXfeRPFF06TCUyVOpzrXPHSDiloEVLGG/HwzYjcgtC4BVE2ER6/Us
+q/ywUtS2ih1lCaoO9eCvAgMBAAGjeTB3MB0GA1UdDgQWBBTZiyZF4iaNArWlSngC
+r6JSZzIwtzBWBgNVHREETzBNghlzdGFnaW5nLmlkcC51YnVudHVuZXQubmV0hjBo
+dHRwczovL3N0YWdpbmcuaWRwLnVidW50dW5ldC5uZXQvaWRwL3NoaWJib2xldGgw
+DQYJKoZIhvcNAQELBQADggEBABmIXLuY7lhSENPiw/6de0B2Db1dJ9TkpycIxLqf
+8HR23rhoCWDP/PXYr+oQeUVzQKB+n1eUUEVj9kwfr1GsKAPUdLeouRT0Z6fpPLsG
+bwAOm/HQUJr7SaVM/lIeFTBkgV1ebBmaEEFTARa6pOTVoD9VKHj5bfJU+2ZyS6rT
+lxYefwodesOUFls8tLG6BR5UH6hkIMZWVqy6NY4XYmVkAKH/6PVQlVlKC45Ql+An
+1fJFoTx7E6LuB0SqH+xER4sL+lidEaCncxPWgNhVZeR7wAPLUQiD4fJ3scVfWeQ1
+bVpDWS8Z/gkhYNlQHRjm0tqYSHwfrVdFT2aEjAfGOHD2FPk=
+              </ds:X509Certificate>
+            </ds:X509Data>
+          </ds:KeyInfo>
+        </KeyDescriptor>
+
+        <AttributeService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding" Location="https://staging.idp.ubuntunet.net:8443/idp/profile/SAML1/SOAP/AttributeQuery" />
+
+        <AttributeService Binding="urn:oasis:names:tc:SAML:2.0:bindings:SOAP" Location="https://staging.idp.ubuntunet.net:8443/idp/profile/SAML2/SOAP/AttributeQuery" />
+
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+
+      </AttributeAuthorityDescriptor>
+
+      <Organization>
+        <OrganizationName xml:lang="en">UbuntuNet Alliance</OrganizationName>
+        <OrganizationDisplayName xml:lang="en">UbuntuNet</OrganizationDisplayName>
+        <OrganizationURL xml:lang="en">http://www.ubuntunet.net/</OrganizationURL>
+      </Organization>
+      <ContactPerson contactType="technical">
+        <GivenName>Chris</GivenName>
+        <SurName>Rohrer</SurName>
+        <EmailAddress>chris.rohrer@ubuntunet.net</EmailAddress>
+      </ContactPerson>
+
+    </EntityDescriptor>
+
+    <!-- A service provider. -->
+    <EntityDescriptor entityID="https://192.168.33.88/shibboleth">
+      <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+
+        <Extensions>
+          <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" index="1" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="http://192.168.33.88/Shibboleth.sso/Login"/>
+          <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" index="2" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://192.168.33.88/Shibboleth.sso/Login"/>
+        </Extensions>
+
+        <KeyDescriptor>
+          <ds:KeyInfo>
+            <ds:X509Data>
+              <ds:X509Certificate>
+MIIDEDCCAfigAwIBAgIJAMRL0riedvI4MA0GCSqGSIb3DQEBBQUAMBgxFjAUBgNV
+BAMTDTE5Mi4xNjguMzMuODgwHhcNMTYwMjAyMTMyNjM5WhcNMTkwMjAxMTMyNjM5
+WjAYMRYwFAYDVQQDEw0xOTIuMTY4LjMzLjg4MIIBIjANBgkqhkiG9w0BAQEFAAOC
+AQ8AMIIBCgKCAQEAsyWaYKGL4ES2Tuuf9hVmob/4TANeiVnVqj3ssVApvCxzmw/G
+qYchOxlXrGwWJULsxf715pXnESe3BSV8wfFoxCUUcZOStrzm9z0fIP0Ixm9F3R6m
+Gx2vJ96wc/B05FqFt2SZi6LcK9pUCiuPbEjoobJWrHLaZ/yPAF2dBQKVCcxqrunE
+WHgIo9K4haYgi1JVoPJXcjl4B9wqbZe8YhVQ7DahZIdIZ1dktMFZ8e1ISqrQV18k
++UUX17HAeEq1PGYsstUxbBFQvuWCbInhMD2yTAbBkrPbvxigzn//dZMV9TPFXEyu
+e2jBzk4cjbWOToZx3jWFzS3MV4NqDHx9BbT0/wIDAQABo10wWzA6BgNVHREEMzAx
+gg0xOTIuMTY4LjMzLjg4hiBodHRwczovLzE5Mi4xNjguMzMuODgvc2hpYmJvbGV0
+aDAdBgNVHQ4EFgQU5RfpAOFZCq7mE7lWWKp4BCeEA7IwDQYJKoZIhvcNAQEFBQAD
+ggEBACDDivrtIhYvKTmZXD+4dinypmeQ6VaDRopRzGRYBjWTWtEoHbDlzhym528X
+0oVn9bbNuzh3BEwsxrN4RAWMQxuO9U9iVKXewYaeZGXjnbnTTEED8dbCqHNz12Yx
+K9zCXKIz2YOTz1WsZSsIZF1oI9XQ9rHyCknPioeDirNkNgzh9NOX210tnqiRCVx/
+rV9IVE02WFJxFIXE02bzdh3Fm/RHxdTkqyhynlPwskOUXVL50JwY6hnj1x3UYN1J
+fyYjG0iazEgIiJ796INjLSXTjCIiNlXOFpzhVzhkmKxMMxLdt+/ieUWsIWtYGYvs
+kbdqUw1IeVdPgpQkLccxqTNKO4Y=
+              </ds:X509Certificate>
+            </ds:X509Data>
+          </ds:KeyInfo>
+        </KeyDescriptor>
+
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+        <AssertionConsumerService index="1" isDefault="true" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://192.168.33.88/Shibboleth.sso/SAML2/POST"/>
+        <AssertionConsumerService index="2" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://192.168.33.88/Shibboleth.sso/SAML2/POST-SimpleSign"/>
+        <AssertionConsumerService index="3" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://192.168.33.88/Shibboleth.sso/SAML2/Artifact"/>
+        <AssertionConsumerService index="4" Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://192.168.33.88/Shibboleth.sso/SAML/POST"/>
+        <AssertionConsumerService index="5" Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://192.168.33.88/Shibboleth.sso/SAML/Artifact"/>
+
+      </SPSSODescriptor>
+
+      <Organization>
+        <OrganizationName xml:lang="en">Your Service</OrganizationName>
+        <OrganizationDisplayName xml:lang="en">Your Service</OrganizationDisplayName>
+        <OrganizationURL xml:lang="en">http://sp.example.org/</OrganizationURL>
+      </Organization>
+      <ContactPerson contactType="technical">
+        <GivenName>Your</GivenName>
+        <SurName>Admin</SurName>
+        <EmailAddress>admin@example.org</EmailAddress>
+      </ContactPerson>
+
+    </EntityDescriptor>
+
+    <!-- Another service provider. -->
+    <EntityDescriptor entityID="https://staging.sp.ubuntunet.net/shibboleth">
+      <SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol urn:oasis:names:tc:SAML:1.1:protocol">
+
+        <Extensions>
+          <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" index="1" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="http://staging.sp.ubuntunet.net/Shibboleth.sso/Login"/>
+          <idpdisc:DiscoveryResponse xmlns:idpdisc="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" index="2" Binding="urn:oasis:names:tc:SAML:profiles:SSO:idp-discovery-protocol" Location="https://staging.sp.ubuntunet.net/Shibboleth.sso/Login"/>
+        </Extensions>
+
+        <KeyDescriptor>
+          <ds:KeyInfo>
+            <ds:X509Data>
+              <ds:X509Certificate>
+MIIDPDCCAiSgAwIBAgIJANDmdEnBO2swMA0GCSqGSIb3DQEBBQUAMCMxITAfBgNV
+BAMTGHN0YWdpbmcuc3AudWJ1bnR1bmV0Lm5ldDAeFw0xNjAzMTEwNzM5MTRaFw0x
+OTAzMTEwNzM5MTRaMCMxITAfBgNVBAMTGHN0YWdpbmcuc3AudWJ1bnR1bmV0Lm5l
+dDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALDErY2NUGKNQAb37Pew
++/zZIrcvD17ILiKptft53nQOPQCC/prA8Mp8eMVvCFW30gCZQ4a4BDHpokzQd3sZ
+197A5+uOqn8yeEK0iaTLN9Pko0rBFMyutSVCSSR1SeaKsLb6OkQo5BORJVn2Unk0
+rPQzl0cBDixMG3dH2L67t7jkHcMy/78d4CKZZ8K77weaSVgY4+5Ts3EH8cBWkTY5
+yh7TGqTXIL2oM5nnYtAEN/jFahzHUDywsVDVMRDT2jsR1cRaW6/slnKPP95QPR5n
+TVfJ5DBKd+9fjq0nOpmt1F9Ee+UfPvFQMTeQ5B4qoXZH53WnwYf9f9U1Mo5P51+g
++QcCAwEAAaNzMHEwUAYDVR0RBEkwR4IYc3RhZ2luZy5zcC51YnVudHVuZXQubmV0
+hitodHRwczovL3N0YWdpbmcuc3AudWJ1bnR1bmV0Lm5ldC9zaGliYm9sZXRoMB0G
+A1UdDgQWBBTZoCI1ac8CZ45rFJD++QNNC3cFgzANBgkqhkiG9w0BAQUFAAOCAQEA
+DYeO9taWqefIwnCR5+TVkquPdESoV9sVrGu+5QE0p8LD61x23BG66aeHYyactDJx
+JTLPMwPg9IDKTPBmoMlEwcjae3MkHTN01jPG3ggL8B5jCp5Qb1V89NydLXb66+r5
+zOaDrimmnWtKGSjHEUWu5UY0WNKERshaQqVYssYJKCxxqmnS8cGIANTN6dXGi+Wv
+EonBPEdQddLr95TRFgOBsnjE1BjvvF3yleXAbqNJ+vkHpUoCqI45SE8CNP2mKKNH
+UsO/C1LaHoY4le7+ebUKo7kCpKBUCfTfFiwkKC2l9lxHN1t01V2ZiDNaFYiFEEom
+T9AQUXw51s+R+tPTvmFayw==
+              </ds:X509Certificate>
+            </ds:X509Data>
+          </ds:KeyInfo>
+        </KeyDescriptor>
+
+        <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+        <NameIDFormat>urn:mace:shibboleth:1.0:nameIdentifier</NameIDFormat>
+
+        <AssertionConsumerService index="1" isDefault="true" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://staging.sp.ubuntunet.net/Shibboleth.sso/SAML2/POST"/>
+        <AssertionConsumerService index="2" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign" Location="https://staging.sp.ubuntunet.net/Shibboleth.sso/SAML2/POST-SimpleSign"/>
+        <AssertionConsumerService index="3" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact" Location="https://staging.sp.ubuntunet.net/Shibboleth.sso/SAML2/Artifact"/>
+        <AssertionConsumerService index="4" Binding="urn:oasis:names:tc:SAML:1.0:profiles:browser-post" Location="https://staging.sp.ubuntunet.net/Shibboleth.sso/SAML/POST"/>
+        <AssertionConsumerService index="5" Binding="urn:oasis:names:tc:SAML:1.0:profiles:artifact-01" Location="https://staging.sp.ubuntunet.net/Shibboleth.sso/SAML/Artifact"/>
+
+      </SPSSODescriptor>
+
+      <Organization>
+        <OrganizationName xml:lang="en">UbuntuNet Alliance</OrganizationName>
+        <OrganizationDisplayName xml:lang="en">Staging SP</OrganizationDisplayName>
+        <OrganizationURL xml:lang="en">https://ubuntunet.net/</OrganizationURL>
+      </Organization>
+      <ContactPerson contactType="technical">
+        <GivenName>Your</GivenName>
+        <SurName>Admin</SurName>
+        <EmailAddress>admin@example.org</EmailAddress>
+      </ContactPerson>
+
+    </EntityDescriptor>
+
+  </EntitiesDescriptor>
