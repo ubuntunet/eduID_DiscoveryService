@@ -1,8 +1,0 @@
-federation_name: UbuntuNet Federation
-federation_identifier: UbuntuFed
-ds_directory: /opt/shibboleth-ds
-tomcat_version: 7
-ds_version: 1.2.1
-metadata_url: https://192.168.33.44/metadata.xml
-fqdn_idp_example: 192.168.33.44
-fqdn_sp_example: 192.168.33.88
