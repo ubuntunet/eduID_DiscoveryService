@@ -21,7 +21,7 @@
 - name: Download Shibboleth cDS
   get_url: > 
     url=http://shibboleth.net/downloads/centralized-discovery-service/{{ ds_version }}/shibboleth-discovery-service-{{ ds_version }}-bin.zip
-    dest=/usr/local/dist
+    dest=/usr/local/dist/shibboleth-discovery-service-{{ ds_version }}-bin.zip
 
 - name: Extract Shibboleth cDS
   unarchive: > 
@@ -51,13 +51,13 @@
 
 - name: Copy sites info file
   template: > 
-    src=templates/sites.xml.j2
+    src=sites.xml.j2
     dest={{ ds_directory }}/metadata/sites.xml
   notify: restart tomcat
 
 - name: Copy Wayfconfig file
   template: > 
-    src=templates/wayfconfig.xml.j2 
+    src=wayfconfig.xml.j2 
     dest={{ ds_directory }}/conf/wayfconfig.xml
   notify: restart tomcat
 
@@ -70,7 +70,7 @@
 
 - name: Enable cDS WAR
   copy: > 
-    src=files/tomcat_discovery.xml 
+    src=tomcat_discovery.xml 
     dest=/etc/tomcat7/Catalina/localhost/discovery.xml
   notify: restart tomcat
 
