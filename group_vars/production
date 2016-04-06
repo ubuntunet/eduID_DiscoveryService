@@ -1,0 +1,6 @@
+federation: unida
+federation_name: unIDa - Linked by UbuntuNet Alliance
+metadata_url: https://rr.ubuntunet.net/metadata/federation/{{ federation }}/metadata.xml
+
+fqdn_idp_example: idp.ubuntunet.net
+fqdn_sp_example: sp.ubuntunet.net
