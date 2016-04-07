@@ -51,8 +51,8 @@
 
 - name: Copy sites info file
   template: > 
-    src=sites.xml.j2
-    dest={{ ds_directory }}/metadata/sites.xml
+    src={{ metadata_file }}.j2
+    dest={{ ds_directory }}/metadata/{{ metadata_file }}
   notify: restart tomcat
 
 - name: Copy Wayfconfig file

@@ -1,6 +1,7 @@
 federation: unida
 federation_name: unIDa - Linked by UbuntuNet Alliance
 metadata_url: https://192.168.33.44/metadata/federation/{{ federation }}/metadata.xml
+metadata_file: static-metadata.xml
 
 fqdn_idp_example: 192.168.33.44
 fqdn_sp_example: 192.168.33.88
