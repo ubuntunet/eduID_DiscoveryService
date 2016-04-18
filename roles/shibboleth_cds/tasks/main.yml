@@ -4,11 +4,21 @@
     # - ntp
     - unzip
 
+- name: Install Apache
+  apt: name=apache2 update_cache=yes cache_valid_time=36000
+
 - name: Install OpenJDK 7
   apt: name=openjdk-7-jdk update_cache=yes cache_valid_time=36000
 
 - name: Install Tomcat 7
   apt: name=tomcat{{ tomcat_version }} update_cache=yes cache_valid_time=36000
+
+- name: Copy index.html page
+  copy: >
+    src=index.html
+    dest=/var/www/html/index.html
+  notify: restart apache
+
 
 # Shibboleth cDS
 
