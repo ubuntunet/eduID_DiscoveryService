@@ -16,6 +16,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "vagrant_cds" do |cds|
     cds.vm.box = "ubuntu/trusty64"
     cds.vm.network "private_network", ip: "192.168.33.55"
+    cds.vm.network :forwarded_port, guest: 22, host: 2255, id: 'ssh'
   end
 
   config.vm.provision "ansible" do |ansible|
