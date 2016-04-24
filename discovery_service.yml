@@ -4,7 +4,11 @@
 
   roles:
     - shibboleth_cds
+    - disco_juice
 
   handlers:
     - name: restart tomcat
       service: name=tomcat{{ tomcat_version }} state=restarted
+
+    - name: restart apache
+      service: name=apache2 state=restarted

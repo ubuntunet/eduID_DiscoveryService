@@ -40,6 +40,13 @@
   shell: cp /usr/local/dist/shibboleth-discovery-service-{{ ds_version }}/lib/endorsed/*.jar /usr/share/tomcat{{ tomcat_version }}/endorsed/
 
 
+- name: Copy Logo
+  copy: > 
+    src=logo.gif 
+    dest=/usr/local/dist/shibboleth-discovery-service-{{ ds_version }}/src/main/webapp/images/logo.gif
+
+
+
 - name: Run install script
   shell: >
     /usr/local/dist/shibboleth-discovery-service-{{ ds_version }}/install.sh -Dds.home.input={{ ds_directory }} -Dinstall.config=yes
