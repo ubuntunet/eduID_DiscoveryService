@@ -4,21 +4,11 @@
     # - ntp
     - unzip
 
-- name: Install Apache
-  apt: name=apache2 update_cache=yes cache_valid_time=36000
-
 - name: Install OpenJDK 7
   apt: name=openjdk-7-jdk update_cache=yes cache_valid_time=36000
 
 - name: Install Tomcat 7
   apt: name=tomcat{{ tomcat_version }} update_cache=yes cache_valid_time=36000
-
-- name: Copy index.html page
-  copy: >
-    src=index.html
-    dest=/var/www/html/index.html
-  notify: restart apache
-
 
 # Shibboleth cDS
 
@@ -48,6 +38,13 @@
 
 - name: Endorse Xerces and Xalan
   shell: cp /usr/local/dist/shibboleth-discovery-service-{{ ds_version }}/lib/endorsed/*.jar /usr/share/tomcat{{ tomcat_version }}/endorsed/
+
+
+- name: Copy Logo
+  copy: > 
+    src=logo.gif 
+    dest=/usr/local/dist/shibboleth-discovery-service-{{ ds_version }}/src/main/webapp/images/logo.gif
+
 
 
 - name: Run install script
