@@ -4,6 +4,7 @@
 
   roles:
     - shibboleth_cds
+    - disco_juice
 
   handlers:
     - name: restart tomcat

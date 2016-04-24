@@ -35,19 +35,35 @@
 
     $("document").ready(function() {
 
-      $.getJSON('/data/acl.json', function(acl) {
 
-        var options = {
-          "title": "DiscoJuice",
-          "feeds": ["edugain", "kalmar", "feide"]
-        };
-        var djc = DiscoJuice.Hosted.getConfig(options);
+      var acl = ['sp.ubuntunet.net', '192.168.33.88'];
+      var options = {
+        "title": "DiscoJuice",
+        "feeds": ["edugain"]
+      };
 
-        djc.always = true;
-        djc.callback = IdPDiscovery.setup(djc, acl);
+      var djc = DiscoJuice.Hosted.getConfig(options);
 
-        $("body").DiscoJuice(djc);
-      });
+      // djc.metadata.push('https://example.org/additional-metadata.js');
+
+      djc.inlinemetadata = [
+        {
+          'entityID': "{{ idp_entity_id }}",
+          'title': 'UbuntuNet Alliance',
+          'icon': 'openidp.png',
+          'descr':'IdP for UbuntuNet Alliance staff',
+          'country':'MW',
+          'geo':null,
+          // 'weight':-5,
+          'keywords': ['UbuntuNet', 'Alliance', 'unIDA', 'FedApps']
+        }
+      ];
+
+
+      djc.always = true;
+      djc.callback = IdPDiscovery.setup(djc, acl);
+
+      $("body").DiscoJuice(djc);
 
     });
 
