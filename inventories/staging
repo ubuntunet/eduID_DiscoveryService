@@ -1,0 +1,13 @@
+wingu_cds ansible_ssh_host=cds.ubuntunet.net
+
+[wingu]
+wingu_cds
+
+[wingu:vars]
+ansible_user=ubuntu
+
+[cds]
+wingu_cds
+
+[production:children]
+cds
