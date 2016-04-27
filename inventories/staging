@@ -1,4 +1,4 @@
-wingu_cds ansible_ssh_host=cds.ubuntunet.net
+wingu_cds ansible_ssh_host=168.253.217.48
 
 [wingu]
 wingu_cds
