@@ -1,0 +1,13 @@
+marida-cds ansible_ssh_host=cds.ubuntunet.net
+
+[marida]
+marida-cds
+
+[marida:vars]
+ansible_user=ubuntu
+
+[cds]
+marida-cds
+
+[maren:children]
+cds
