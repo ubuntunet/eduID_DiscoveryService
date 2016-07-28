@@ -66,10 +66,11 @@
 
 -->
 
-        <MetadataProvider displayName="{{ federation_name }}" 
-                        identifier="{{ federation_identifier }}" 
-                        url="file://{{ ds_directory }}/metadata/sites.xml"/>
-<!--                        url="file://$DS_HOME$/metadata/sites.xml"/> -->
+    <MetadataProvider displayName="{{ federation_name }}" 
+                      identifier="{{ federation }}" 
+                      backingFile="{{ ds_directory }}/metadata/{{ metadata_file }}"
+                      url="{{ metadata_url }}"
+                      disregardSslCertificate="true"/>
 
 <!-- If the DS is to handle data from more than one metadata source
      then more metadataproviders can be provided, as below

@@ -13,9 +13,16 @@ Vagrant.configure(2) do |config|
   # Use the same key for each machine 
   config.ssh.insert_key = false
 
-  config.vm.define "vagrant_ds" do |ds|
-    ds.vm.box = "ubuntu/trusty64"
-    ds.vm.network "private_network", ip: "192.168.33.55"
+  config.vm.define "vagrant_cds" do |cds|
+    cds.vm.box = "ubuntu/trusty64"
+    cds.vm.network "private_network", ip: "192.168.33.55"
+    cds.vm.network :forwarded_port, guest: 22, host: 2255, id: 'ssh'
+  end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "discovery_service.yml"
+    ansible.inventory_path = "inventories/development"
+    ansible.limit = 'all'
   end
 
   # Every Vagrant development environment requires a box. You can search for

@@ -1,0 +1,8 @@
+federation: unida
+federation_name: unIDa - Linked by UbuntuNet Alliance
+support_email: unida@ubuntunet.net
+metadata_url: https://rr.ubuntunet.net/metadata/federation/{{ federation }}/metadata.xml
+metadata_file: static-metadata.xml
+
+idp_entity_id: https://idp.ubuntunet.net/shibboleth
+sp_entity_id:

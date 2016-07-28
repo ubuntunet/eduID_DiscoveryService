@@ -1,63 +1,14 @@
 - name: Install Shibboleth centralized Discovery Service for UbuntuNet Alliance
-  hosts: development
-  sudo: True
-  vars:
-    federation_name: UbuntuNet Federation
-    federation_identifier: UbuntuFed
-    ds_directory: /opt/shibboleth-ds
-    # fully_qualified_service_name: idp.{{ home_organisation_name }}
-    # entity_id: https://{{ fully_qualified_service_name }}/shibboleth/idp
-    # admin_email: idp@ubuntunet.net
-    # certificate_key_path: /etc/ssl/private/{{ fully_qualified_service_name }}.key
-    # certificate_cert_path: /etc/ssl/certs/{{ fully_qualified_service_name }}.crt
-    tomcat_version: 7
-    ds_version: 1.2.1
+  hosts: cds
+  become: True
 
-  tasks:
-    - name: Install needed utility programs
-      apt: pkg={{ item }} update_cache=yes cache_valid_time=3600
-      with_items:
-        # - ntp
-        - unzip
+  roles:
+    - shibboleth_cds
+    - disco_juice
 
-    - name: Install OpenJDK 7
-      apt: name=openjdk-7-jdk update_cache=yes cache_valid_time=3600
+  handlers:
+    - name: restart tomcat
+      service: name=tomcat{{ tomcat_version }} state=restarted
 
-    # Servlet container: Apache Tomcat 7
-    - name: Install Tomcat 7
-      apt: name=tomcat{{ tomcat_version }} update_cache=yes cache_valid_time=3600
-
-    # Shibboleth cDS
-
-    # 6.1. cDS installation
-    - name: Create download directory
-      file: >
-        path=/usr/local/dist
-        state=directory
-
-    # - name: Download Shibboleth cDS
-    #   get_url: > 
-    #     url=http://shibboleth.net/downloads/centralized-discovery-service/{{ ds_version }}/shibboleth-discovery-service-{{ ds_version }}-bin.zip
-    #     dest=/usr/local/dist
-
-    - name: Extract Shibboleth cDS
-      unarchive: > 
-        src=/usr/local/dist/shibboleth-discovery-service-{{ ds_version }}-bin.zip 
-        dest=/usr/local/dist
-        copy=no
-
-    - name: Create endorsed directory
-      file: >
-        path=/usr/share/tomcat{{ tomcat_version }}/endorsed
-        state=directory
-        owner=tomcat7
-
-
-    - name: Endorse Xerces and Xalan
-      shell: cp /usr/local/dist/shibboleth-discovery-service-{{ ds_version }}/lib/endorsed/*.jar /usr/share/tomcat{{ tomcat_version }}/endorsed/
-
-
-    - name: Create cDS directory
-      file: >
-        path={{ ds_directory }}
-        state=directory
+    - name: restart apache
+      service: name=apache2 state=restarted

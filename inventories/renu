@@ -1,0 +1,13 @@
+renida-cds ansible_ssh_host=cds.ubuntunet.net
+
+[renida]
+renida-cds
+
+[renida:vars]
+ansible_user=ubuntu
+
+[cds]
+renida-cds
+
+[renu:children]
+cds
