@@ -46,6 +46,8 @@
     dest=/usr/local/dist/shibboleth-discovery-service-{{ ds_version }}/src/main/webapp/images/logo.gif
 
 
+- name: Remove old war file
+  file: path={{ ds_directory }}/war/discovery.war state=absent
 
 - name: Run install script
   shell: >
