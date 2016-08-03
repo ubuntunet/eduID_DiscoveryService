@@ -1,3 +1,4 @@
-.vagrant
+roles/disco_juice/vars/main.yml
 
+.vagrant
 *.retry

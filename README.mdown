@@ -1,0 +1,16 @@
+# Ansible Playbook for Shibboleths Centralized Discovery Service (cDS)
+
+https://shibboleth.net/products/centralized-discovery-service.html
+
+## Enable DiscoJuice (http://discojuice.org/)
+
+* Uncomment the disco_juice role in discovery_service.yml
+* Copy the main vars file
+```
+cp roles/disco_juice/vars/main.yml.example roles/disco_juice/vars/main.yml
+```
+* Fill in the missing values in the variable file roles/disco_juice/vars/main.yml
+* (Re-)Play the playbook
+```
+ansible-playbook -i inventories/<environment> discovery_service.yml
+```

@@ -58,12 +58,6 @@
     # JAVA_HOME: "${JAVA_HOME:-$(ls -d /usr/lib/jvm/java-1.7.0-openjdk-* 2>/dev/null | tail -1)/jre}"
     JAVA_HOME: "/usr/lib/jvm/java-1.7.0-openjdk-amd64"
 
-- name: Copy sites info file
-  template: > 
-    src={{ metadata_file }}.j2
-    dest={{ ds_directory }}/metadata/{{ metadata_file }}
-  notify: restart tomcat
-
 - name: Copy Wayfconfig file
   template: > 
     src=wayfconfig.xml.j2 
@@ -72,7 +66,6 @@
 
 - name: Hand logs directory to Tomcat user
   file: path={{ ds_directory }}/logs owner=tomcat7 recurse=yes
-
 
 - name: Hand metadata directory to Tomcat user
   file: path={{ ds_directory }}/metadata owner=tomcat7 recurse=yes
